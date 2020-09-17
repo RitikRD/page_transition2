@@ -50,7 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           children: <Widget>[
             Left(),
-            CenterPage(),
+            CenterPage(
+              pageController: _pageController,
+            ),
             Right(),
           ],
         ),

@@ -4,6 +4,9 @@ import 'package:test1/pages/swiperightpage.dart';
 import 'swipeleftpage.dart';
 
 class CenterPage extends StatelessWidget {
+  final PageController pageController;
+
+  const CenterPage({Key key, this.pageController}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,8 +16,11 @@ class CenterPage extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Left()));
+                pageController.animateToPage(
+                  0,
+                  duration: Duration(milliseconds: 150),
+                  curve: Curves.easeIn,
+                );
               },
               child: CircleAvatar(
                 radius: 30.0,
@@ -31,8 +37,11 @@ class CenterPage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Right()));
+                pageController.animateToPage(
+                  2,
+                  duration: Duration(milliseconds: 150),
+                  curve: Curves.easeIn,
+                );
               },
               child: CircleAvatar(
                 radius: 30.0,
